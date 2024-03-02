@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/home.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="todo">
+        <form method="post">
+            <p>
+                <%= error %>
+            </p>
+            <input type="text" name="title" placeholder="Your Title" required />
+            <input type="text" name="desc" placeholder="Your Description" required />
+            <button class="btn-add">Add Task</button>
+        </form>
+        <form action="/logout">
+            <button class="btn-add">Logout</button>
+        </form>
+    </div>
+
+    <% taskData.forEach(item=> { %>
+        <div class="yourTodo">
+            <div class="left">
+                <h1>
+                    <%= item.title %>
+                </h1>
+                <p>
+                    <%= item.desc %>
+                </p>
+            </div>
+            <a href="/delete/<%=item._id %>"><button class="delete">Delete</button></a>
+        </div>
+        <% }); %>
+
+            <script src="/javascripts/script.js"></script>
+</body>
+
+</html>
